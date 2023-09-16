@@ -1,0 +1,86 @@
+.lineMask{
+    overflow: hidden;
+
+}
+
+.lineMask p{
+    margin: 0px;
+}
+
+
+.root_title{
+    height: 70px;
+    position: relative;
+    overflow: hidden;
+    span{
+        position: absolute;
+        line-height: 4.2rem;
+    }
+}
+.backgroundImage{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+}
+@media (max-width: 1024px) {
+    .backgroundImage{
+        position: relative;
+        border-radius: 20px;
+        height: 400px;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .backgroundImage{
+        aspect-ratio: 16/9;
+        height: 300px;
+        border-radius: 20px;
+    }
+}
+
+
+
+.backgroundImage img{
+    object-fit: cover;
+    clip-path: inset(100% 0 0 0);
+    animation: clip-in 1s .5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.subtitle_text:nth-child(1){
+    display: flex;
+}
+
+@keyframes clip-in{
+    from{
+        clip-path: inset(100% 0 0 0);
+    }
+    to{
+        clip-path: inset(0 0 0 0);
+
+
+    }
+}
+
+
+.header_bottom{
+    animation: fade-up 1s .5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-right: 10px;
+    opacity: 0;
+}
+
+
+
+@keyframes fade-up{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+    }
+}
+

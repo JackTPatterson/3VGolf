@@ -1,0 +1,20 @@
+.header_bottom_pri{
+  opacity: 0;
+  animation: fade-up 1s .75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.header_bottom_sec{
+  opacity: 0;
+  animation: fade-up 1s 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+}
+
+@keyframes fade-up{
+  from{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to{
+    opacity: 1;
+  }
+}
