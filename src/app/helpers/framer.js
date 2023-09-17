@@ -4,15 +4,14 @@ import {useInView} from "react-intersection-observer";
 import styles from "@/app/page.module.scss";
 import {motion} from "framer-motion";
 
-export function MaskTextHeader(props) {
+export function MaskTextHeader() {
 
-    let phrases = [];
 
-    if(props.big){
-        phrases = [
+
+       const phrases = [
             "DEVELOP", "YOUR", "PERFECT", "GAME"
         ]
-    }
+
 
     const animation = {
         initial: {y: "100%"},
@@ -29,7 +28,7 @@ export function MaskTextHeader(props) {
             {
                 phrases.map( (phrase, index) => {
                     return <div key={index} className={styles.lineMask}>
-                        <motion.p className={"2xl:text-[103px] xl:text-[83.3px] lg:text-[66.5px] md:text-[48px] sm:text-[39px] text-[25px] -z-40 font-bold"} custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{phrase}</motion.p>
+                        <motion.p className={"2xl:text-[101px] xl:text-[83.3px] lg:text-[65.5px] md:text-[48px] sm:text-[39px] text-[25px] -z-40 font-bold"} custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{phrase}</motion.p>
                     </div>
                 })
             }

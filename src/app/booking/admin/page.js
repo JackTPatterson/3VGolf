@@ -1,33 +1,33 @@
 'use client'
 import {Header} from "@/app/components/header";
 import dayjs from "dayjs";
-
 import {collection, setDoc, getDocs, doc, deleteDoc, updateDoc} from "firebase/firestore";
 import {db} from '../../helpers/firebase';
 import {Fragment, useEffect, useRef, useState} from "react";
 import {
-    Button,
-    DisabledButton,
     IconButton,
     ModifyButton,
-    RedirectButton,
     Secondary,
-    SecondaryButton
 } from "@/app/components/Buttons";
 import {Dialog, Transition} from "@headlessui/react";
-import {redirect} from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
 import {notify, Toast} from "@/app/helpers/toast";
 import {toast} from "react-toastify";
+import { SessionProvider } from "next-auth/react"
+import {useAuthContext} from "@/app/context/auth_context";
+
+
+
 export default function Page() {
 
 
 
     const [dates, setDates] = useState([]);
 
-    const [selected, setSelected] = useState([]);
-
     const [date, setDate] = useState(null);
     const [time, setTime] = useState(null);
+
+    const [getAuth, setGetAuth] = useState(false);
 
     const [open, setOpen] = useState({o: false, d: null});
 
@@ -177,13 +177,19 @@ export default function Page() {
         )
     }
 
-
+    const { user } = useAuthContext()
+    const router = useRouter()
 
     useEffect(() => {
-        if (dates.length < 1) {
-            fetchData().then()
+        if (user == null) router.push("/booking/admin/login")
+        else{
+            if (dates.length < 1) {
+                setGetAuth(true)
+                fetchData().then()
+            }
         }
-    })
+    }, [dates.length, router, user])
+
 
 
     const fetchData = async () => {
@@ -303,7 +309,14 @@ export default function Page() {
 
         )
     }
+
+
+
+
+
+
     return (
+        getAuth ? (
         <div>
             <Header/>
             <Modal/>
@@ -343,7 +356,7 @@ export default function Page() {
                 </div>
 
             </section>
-        </div>
+        </div> ) : <></>
 
 )
 }

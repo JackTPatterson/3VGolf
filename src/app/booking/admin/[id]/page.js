@@ -8,6 +8,9 @@ import {useEffect, useState} from "react";
 import dayjs from "dayjs";
 import {loadStripe} from "@stripe/stripe-js";
 import {notify, Toast} from "@/app/helpers/toast";
+import {router} from "next/client";
+import {useAuthContext} from "@/app/context/auth_context";
+import {useRouter} from "next/navigation";
 
 
 export default function DetailPage({params}) {
@@ -20,6 +23,9 @@ export default function DetailPage({params}) {
     const queryName = new URLSearchParams(window.location.search).get('name')
 
     const queryEmail = new URLSearchParams(window.location.search).get('email')
+
+    const [getAuth, setGetAuth] = useState(false);
+
 
 
     const fetchDoc = async () => {
@@ -37,13 +43,26 @@ export default function DetailPage({params}) {
             })
     }
 
+    const { user } = useAuthContext()
+    const router = useRouter()
+
     useState(() => {
         fetchDoc().then();
     })
 
+    useEffect(() => {
+        if (user == null) router.push("/booking/admin/login")
+        else{
+            setGetAuth(true)
+
+                fetchDoc().then();
+
+        }
+    }, [fetchDoc, router, user])
+
 
     const issueRefund = async (slot) => {
-        const stripe = require('stripe')('sk_test_51Nq7cBIX3jzwr7UWZSTJUnmFKCKHV3hs4xdUBvcnvD1fO0LkweENDB0PTgOzMqGP2q7L5pXraALCXGwq185p3b9C00yVn2EZ8l');
+        const stripe = require('stripe')(process.env.STRIPE_SK);
 
         const session = await stripe.checkout.sessions.retrieve(
             slot.session
