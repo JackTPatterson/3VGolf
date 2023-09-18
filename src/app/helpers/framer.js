@@ -74,7 +74,6 @@ export function MaskSubtitle(props) {
     if(props.big){
         phrases = [
             "Tailored coaching for unique strengths, success-driven goals", "and expert guidance. Your journey to improvement starts here"
-
         ]
     }
     else{

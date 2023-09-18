@@ -1,6 +1,7 @@
 import './globals.css'
 import {Inter, Poppins} from 'next/font/google'
 import {AuthContextProvider} from "@/app/context/auth_context";
+import {Analytics} from "@vercel/analytics/react";
 
 
 const inter = Poppins({ subsets: ['latin'], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] })
@@ -21,6 +22,7 @@ export default async function RootLayout({ children }) {
         <body className={inter.className}>
         <AuthContextProvider>
             {children}
+            <Analytics />
         </AuthContextProvider>
         </body>
         </html>

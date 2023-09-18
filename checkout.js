@@ -9,7 +9,6 @@ export async function checkout({lineItems}, origin){
     }
     return stripePromise
   }
-
   const stripe = await getStripe()
 
   await stripe.redirectToCheckout({
