@@ -211,7 +211,6 @@ export default function Page() {
     }
 
 
-
     const updateTime = async (id) => {
         try {
         let dt = new Date(date.target.value + "T" + time.target.value + ":00")
@@ -245,13 +244,10 @@ export default function Page() {
             toast("Session Created")
             fetchData().then()
 
-
-
         } catch (e) {
             console.error("Error adding document: ", e);
         }
     }
-
 
 
 

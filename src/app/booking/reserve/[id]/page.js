@@ -11,6 +11,7 @@ import axios from 'axios';
 import {checkout} from "../../../../../checkout";
 import {redirect, usePathname} from "next/navigation";
 import { useRouter } from 'next/navigation'
+import {processPayment} from "@/app/booking/reserve/helpers/stripe";
 
 
 
@@ -59,20 +60,7 @@ export default function DetailPage({ params }) {
         }
     })
 
-    const processPayment = async ()=>{
 
-            await checkout({
-                lineItems: [
-                    {
-                        price: "price_1Nq7dyIX3jzwr7UWvbmRRjnc",
-                        quantity: 1
-                    }
-                ],
-            }, `http://127.0.0.1:3000${pathname}?&name=${queryName}&email=${queryEmail}`)
-
-
-
-    }
 
     return <div>
         <Header/>
@@ -112,7 +100,7 @@ export default function DetailPage({ params }) {
                 </div>
                 <div className={"md:w-1/2 mt-10"}>
                     {querySuccess === null ?
-                    <ModifyButton modify title={"Continue to Payment"} action={processPayment}>
+                    <ModifyButton modify title={"Continue to Payment"} action={()=>processPayment(pathname, queryName, queryEmail)}>
                         Submit
                     </ModifyButton> : <></>
                     }

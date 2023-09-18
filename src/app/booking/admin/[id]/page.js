@@ -11,11 +11,11 @@ import {notify, Toast} from "@/app/helpers/toast";
 import {router} from "next/client";
 import {useAuthContext} from "@/app/context/auth_context";
 import {useRouter} from "next/navigation";
+import {data, fetchDoc, queryEmail, setGetAuth, slots} from "@/app/booking/admin/[id]/helpers/firebase";
+import {issueRefund} from "@/app/booking/admin/[id]/helpers/stripe";
 
 
 export default function DetailPage({params}) {
-
-
     const [data, setData] = useState();
 
     const [slots, setSlots] = useState([]);
@@ -26,11 +26,10 @@ export default function DetailPage({params}) {
 
     const [getAuth, setGetAuth] = useState(false);
 
-
+    const { user } = useAuthContext()
+    const router = useRouter()
 
     const fetchDoc = async () => {
-
-
         const docRef = doc(db, "users", params.id);
         const docSnap = await getDoc(docRef)
         setData(docSnap.data())
@@ -43,9 +42,6 @@ export default function DetailPage({params}) {
             })
     }
 
-    const { user } = useAuthContext()
-    const router = useRouter()
-
     useState(() => {
         fetchDoc().then();
     })
@@ -54,45 +50,13 @@ export default function DetailPage({params}) {
         if (user == null) router.push("/booking/admin/login")
         else{
             setGetAuth(true)
-
                 fetchDoc().then();
-
         }
-    }, [fetchDoc, router, user])
-
-
-    const issueRefund = async (slot) => {
-        const stripe = require('stripe')(process.env.STRIPE_SK);
-
-        const session = await stripe.checkout.sessions.retrieve(
-            slot.session
-        )
-        const paymentIntent = await stripe.paymentIntents.retrieve(
-            session.payment_intent
-        );
-
-        const refund = await stripe.refunds.create({
-            charge: paymentIntent.latest_charge
-        }).then(() => {
-            removeSlot(slot.id)
-        })
-        notify("Refund Issued")
-        fetchDoc().then();
-
-    }
-    const removeSlot = async (id) => {
-        const docRef = doc(db, "users", params.id, "slots", id);
-        await deleteDoc(docRef).then(r => {
-        })
-        await updateDoc(doc(db, "users", params.id), {
-            slotAmount: increment(-1)
-        })
-    }
+    }, [router, user])
 
     const Row = () => {
         return (
             slots?.map((slot, i) => (
-
                 <div key={i}>
                     <div className="p-6 rounded-2xl bg-gray-100 w-full">
                         <div className="mb-2 flex justify-between items-center space-x-10">
@@ -105,16 +69,11 @@ export default function DetailPage({params}) {
                                 </h3>
                             </div>
 
-                            <ModifyButton modify title={"Refund"} action={ async ()=>{issueRefund(slot)}}/>
+                            <ModifyButton modify title={"Refund"} action={ async ()=>{await issueRefund(slot, params); fetchDoc().then();}}/>
                         </div>
                     </div>
-
                 </div>
-
-
             ))
-
-
         )
     }
 
@@ -133,7 +92,6 @@ export default function DetailPage({params}) {
 
                     <div className={"mt-10"}>
                         <div className={"flex space-x-4 items-center"}>
-
 
                             {
                                 <p className={"font-medium text-2xl"}>{queryEmail}</p>

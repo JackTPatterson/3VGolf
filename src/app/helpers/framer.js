@@ -73,13 +73,13 @@ export function MaskSubtitle(props) {
 
     if(props.big){
         phrases = [
-            "In nulla id fugiat anim culpa incididunt elit anim nisi amet",
-            "commodo deserunt In nulla id fugiat anim culpa"
+            "Tailored coaching for unique strengths, success-driven goals", "and expert guidance. Your journey to improvement starts here"
+
         ]
     }
     else{
         phrases = [
-            "In nulla id fugiat anim culpa incididunt elit anim nisi amet commodo deserunt In nulla id fugiat anim culpa"
+            "Tailored coaching for unique strengths, success-driven goals and expert guidance. Your journey to improvement starts here"
         ]
     }
 

@@ -5,11 +5,11 @@ export const  PrimaryButton = (props) => {
 
     return !props.head ?
         <div className={styles.header_bottom_pri}>
-            <div className="w-auto transition bg-transparent duration-300 hover:-translate-y-0.5">
+            <div className="w-auto transition bg-transparent  duration-300 hover:-translate-y-0.5">
                 <div className="inline-block">
                     <Link
-                        className="inline-block px-8 py-3 text-white tracking-tighter bg-primary hover:bg-[#5c9f52ff] border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
-                        href="booking">{props.title}
+                        className="inline-block px-8 py-3 text-white tracking-tighter bg-primary hover:bg-green-500 border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
+                        href="/booking">{props.title}
                     </Link>
                 </div>
             </div>
@@ -18,8 +18,8 @@ export const  PrimaryButton = (props) => {
         <div className="w-auto hidden lg:block transition duration-300 hover:-translate-y-0.5">
             <div className="inline-block ">
                 <Link
-                    className="inline-block px-8 py-3 text-white tracking-tighter bg-primary hover:bg-[#5c9f52ff] border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
-                    href="booking">{props.title}
+                    className="inline-block px-8 py-3 text-white tracking-tighter bg-primary hover:bg-green-500 border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
+                    href="/booking">{props.title}
                 </Link>
             </div>
         </div>
@@ -47,7 +47,7 @@ export const Button = (props) => {
         <div className="w-full">
             <div className="inline-block w-full">
                 <a
-                    className="cursor-pointer w-full text-center inline-block px-8 py-3 text-white tracking-tighter bg-primary hover:bg-[#5c9f52ff] border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
+                    className="cursor-pointer w-full text-center inline-block px-8 py-3 text-white tracking-tighter bg-primary hover:bg-green-500 border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
                     onClick={props.action}>{props.title}
                 </a>
             </div>
@@ -108,7 +108,7 @@ export const SecondaryButton = (props) => {
         <div className="w-auto transition duration-300 hover:-translate-y-0.5">
             <div className="inline-block">
                 <a
-                    className="inline-block px-8 py-3 text-primary hover:text-white tracking-tighter bg-transparent hover:bg-[#5c9f52ff] border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
+                    className=" inline-block px-8 py-3 text-primary hover:text-white tracking-tighter bg-transparent hover:bg-green-500 border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
                     href={props.action}>{props.title}
                 </a>
             </div>
@@ -122,7 +122,7 @@ export const Secondary = (props) => {
 
 
                     <a
-                        className="cursor-pointer text-center px-8 py-3 text-primary hover:text-white tracking-tighter bg-transparent hover:bg-[#5c9f52ff] border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
+                        className="cursor-pointer text-center px-8 py-3 text-primary hover:text-white tracking-tighter bg-transparent hover:bg-green-500 border-2 border-primary focus:border-opacity-40 hover:border-green-500 focus:ring-4 focus:ring-green-500 focus:ring-opacity-40 rounded-full transition duration-300"
                         onClick={props.action}>{props.title}
                     </a>
     )

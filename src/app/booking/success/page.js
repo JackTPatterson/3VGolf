@@ -23,11 +23,11 @@ export default function Success() {
 
         const query = new URLSearchParams(window.location.search).get('id')
 
-if(query) {
-    const docRef = doc(db, "users", query);
-    const docSnap = await getDoc(docRef)
-    setData(docSnap.data())
-}
+        if(query) {
+            const docRef = doc(db, "users", query);
+            const docSnap = await getDoc(docRef)
+            setData(docSnap.data())
+        }
 
     }
 
