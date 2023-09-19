@@ -34,7 +34,7 @@ export const Header = () => {
                                     <li className="mr-12 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="/#about">About
                                         us</a></li>
                                     <li className="mr-12 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="/#team">Our Team</a></li>
-                                    <li className="mr-12 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="#">Contact Us</a></li>
+                                    {/*<li className="mr-12 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="#">Contact Us</a></li>*/}
                                 </ul>
                             </div>
                             <PrimaryButton head title={"Book a Session"}/>
@@ -81,7 +81,7 @@ export const Header = () => {
                                 <li className="mb-8 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="/#about">About
                                     us</a></li>
                                 <li className="mb-8 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="/#team">Our Team</a></li>
-                                <li className="mb-8 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="#">Contact Us</a></li>
+                                {/*<li className="mb-8 text-black font-medium hover:text-opacity-90 tracking-tighter"><a href="#">Contact Us</a></li>*/}
 
                             </ul>
                         </div>

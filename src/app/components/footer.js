@@ -25,9 +25,9 @@ export default function Footer(){
                                 <a
                                     href="/#about">About Us</a></li>
 
-                            <li className="mr-12 text-gray-300 font-medium hover:text-opacity-90 tracking-tighter">
-                                <a
-                                    href="#">Contact</a></li>
+                            {/*<li className="mr-12 text-gray-300 font-medium hover:text-opacity-90 tracking-tighter">*/}
+                            {/*    <a*/}
+                            {/*        href="#">Contact Us</a></li>*/}
                             <li className="mr-12 text-gray-300 font-medium hover:text-opacity-90 tracking-tighter">
                                 <a
                                     href="#">Book a Session</a></li>
