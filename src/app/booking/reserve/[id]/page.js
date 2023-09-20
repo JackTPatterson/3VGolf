@@ -42,7 +42,7 @@ export default function DetailPage({ params }) {
     useState(async()=>{
         fetchDoc().then();
 
-        if(querySuccess === 'true'){
+        if(querySuccess === 'true' && querySuccess){
             const docRef = doc(db, "users", params.id.split("%26")[0]);
             const colRef = collection(docRef, "slots")
 

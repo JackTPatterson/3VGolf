@@ -15,7 +15,7 @@ export async function checkout({lineItems}, origin){
     mode: 'payment',
     lineItems,
     successUrl: `${origin}&session_id={CHECKOUT_SESSION_ID}&success=true`,
-    cancelUrl: `${origin}&success=false`
+    cancelUrl: `${origin}`
   })
 
 }

@@ -10,7 +10,7 @@ import {
     Secondary,
 } from "@/app/components/Buttons";
 import {Dialog, Transition} from "@headlessui/react";
-import {redirect, useRouter} from "next/navigation";
+import {useRouter} from "next/navigation";
 import {notify, Toast} from "@/app/helpers/toast";
 import {toast} from "react-toastify";
 import { SessionProvider } from "next-auth/react"

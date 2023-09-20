@@ -37,7 +37,6 @@ export default function Page() {
             .then((querySnapshot) => {
                 querySnapshot.forEach(data => {
                     if (data.data().time.seconds * 1000 > Date.now()) {
-                        console.log(data)
                         dat.push({...data.data(), id: data.id})
                     }
                 })
@@ -76,8 +75,6 @@ export default function Page() {
                     </div>
 
                 </div>
-
-
             ))
         )
     }
