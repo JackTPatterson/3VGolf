@@ -2,7 +2,7 @@ import {notify} from "@/app/helpers/toast";
 import {removeSlot} from "@/app/booking/admin/[id]/helpers/firebase";
 
 export const issueRefund = async (slot, params) => {
-    const stripe = require('stripe')('sk_test_51Nq7cBIX3jzwr7UWZSTJUnmFKCKHV3hs4xdUBvcnvD1fO0LkweENDB0PTgOzMqGP2q7L5pXraALCXGwq185p3b9C00yVn2EZ8l');
+    const stripe = require('stripe')('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');
 
     const session = await stripe.checkout.sessions.retrieve(
         slot.session

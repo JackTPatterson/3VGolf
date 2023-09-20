@@ -28,7 +28,7 @@ export default function DetailPage({ params }) {
 
     const querySuccess = new URLSearchParams(window.location.search).get('success')
 
-    const stripePromise = loadStripe("pk_test_51Nq7cBIX3jzwr7UWS1EH1M2UCyL5IU2ig7yhXvxBXcNyOyv0iQzFm8I1ejEhM3sQ94bDoPShw78rN8Fmz1pcKYyN00lVHybZRh");
+    const stripePromise = loadStripe("pk_live_51Nq7cBIX3jzwr7UWhCy02tD1n4EkuPTT5FkNjWvA6HrYPLhzWcYo326R8lwrustPNddnYvH0UlSQc9O86OpNQJ0G00vdeDCOBb");
 
     const pathname = usePathname()
     const router = useRouter()
