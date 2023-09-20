@@ -9,5 +9,5 @@ export const processPayment = async (pathname, queryName, queryEmail)=>{
                 quantity: 1
             }
         ],
-    }, `http://127.0.0.1:3000${pathname}?&name=${queryName}&email=${queryEmail}`)
+    }, `https://threevillageyouthgolf.com/${pathname}?&name=${queryName}&email=${queryEmail}`)
 }
