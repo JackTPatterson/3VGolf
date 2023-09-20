@@ -5,7 +5,7 @@ export const processPayment = async (pathname, queryName, queryEmail)=>{
     await checkout({
         lineItems: [
             {
-                price: "price_1NsESIIX3jzwr7UW16hHzw4A",
+                price: "price_1NsER9IX3jzwr7UWudJ7CxsG",
                 quantity: 1
             }
         ],
