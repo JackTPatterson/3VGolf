@@ -90,22 +90,22 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section id={"team"} className={"relative pt-40 overflow-hidden"}>
-                <div className="container px-4 mx-auto">
-                    <div className="mb-20 text-center">
-                        <h1 className={"text-7xl font-bold "}>OUR TEAM</h1>
-                    </div>
-                </div>
-                <div className="relative">
-                    <div className="container px-4 mx-auto">
-                        <div className="lg:flex justify-between flex-nowrap -m-14">
-                            <TeamPicture/>
-                            <TeamPicture/>
-                            <TeamPicture/>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/*<section id={"team"} className={"relative pt-40 overflow-hidden"}>*/}
+            {/*    <div className="container px-4 mx-auto">*/}
+            {/*        <div className="mb-20 text-center">*/}
+            {/*            <h1 className={"text-7xl font-bold "}>OUR TEAM</h1>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <div className="relative">*/}
+            {/*        <div className="container px-4 mx-auto">*/}
+            {/*            <div className="lg:flex justify-between flex-nowrap -m-14">*/}
+            {/*                <TeamPicture/>*/}
+            {/*                <TeamPicture/>*/}
+            {/*                <TeamPicture/>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
             <Footer/>
         </main>
     )
