@@ -111,7 +111,15 @@ export default function Page() {
                         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 md:space-x-4">
                             <Row/>
                         </div>
+                        { !dates.length ?
+                            <div className={"mt-10"}>
+                                <h1 className={"text-2xl"}>There are no session yet</h1>
+                            </div> : <></>
+                        }
+
                     </div>
+
+
 
                 </section>
 
