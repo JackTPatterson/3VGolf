@@ -40,6 +40,8 @@ export default function DetailPage({params}) {
                     .map((doc) => ({...doc.data(), id: doc.id}));
                 setSlots(newData);
             })
+
+        return docSnap.data()
     }
 
     useState(() => {
@@ -87,7 +89,7 @@ export default function DetailPage({params}) {
                         data ?
 
                             <h1 className={"text-4xl font-bold "}>Reservation
-                                for {dayjs(data.time.seconds * 1000).format('MMMM DD, YYYY')} at {dayjs(data.time.seconds * 1000).format('h:mm A')}</h1> : <></>
+                                for {dayjs(data?.time.seconds * 1000).format('MMMM DD, YYYY')} at {dayjs(data?.time.seconds * 1000).format('h:mm A')}</h1> : <></>
                     }
 
                     <div className={"mt-10"}>

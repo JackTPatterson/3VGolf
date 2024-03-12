@@ -2,9 +2,11 @@
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {Header} from "@/app/components/header";
+import {useRouter} from "next/navigation";
 import {useState} from "react";
 import {Button} from "@/app/components/Buttons";
 import {auth} from "@/app/helpers/firebase";
+import {notify, Toast} from "@/app/helpers/toast";
 
 export default function Login() {
 
@@ -19,11 +21,14 @@ export default function Login() {
         })
     };
 
+    const router = useRouter();
+
 
 
     return (
         <div>
             <Header/>
+            <Toast/>
             <section id={"team"} className={"relative mt-10 overflow-hidden"}>
                 <div className="container px-4 mx-auto">
                     <div className="mb-20 text-left">
@@ -46,7 +51,12 @@ export default function Login() {
 
                     </div>
                     <div className={"sm:w-1/2 w-full"}>
-                        <Button action={()=>logIn(email.target.value, password.target.value)} title={"Login"}/>
+                        <Button action={()=>logIn(email.target.value, password.target.value).then(r=>{
+                            notify("Logged In", Toast.SUCCESS)
+                            router.push("/booking/admin")
+                        }).catch(err=>{
+                            notify("Error", Toast.ERROR)
+                        })} title={"Login"}/>
                     </div>
 
                 </div>
