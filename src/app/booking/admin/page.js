@@ -306,11 +306,6 @@ export default function Page() {
         )
     }
 
-
-
-
-
-
     return (
         getAuth ? (
         <div>
@@ -346,7 +341,7 @@ export default function Page() {
                     </div>
 
 
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 md:space-x-4">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
                         <Row/>
                     </div>
                 </div>

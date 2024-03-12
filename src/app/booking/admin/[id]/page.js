@@ -104,7 +104,7 @@ export default function DetailPage({params}) {
                     </div>
                 </div>
                 <div
-                    className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 md:space-x-4">
+                    className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
                     <Row/>
                 </div>
 
