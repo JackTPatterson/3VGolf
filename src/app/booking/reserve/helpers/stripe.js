@@ -1,6 +1,6 @@
 import {checkout} from "../../../../../checkout";
 
-export const processPayment = async (pathname, queryName, queryEmail)=>{
+export const processPayment = async (pathname, queryName, queryEmail, queryExp, queryAge)=>{
 
     await checkout({
         lineItems: [
@@ -9,5 +9,5 @@ export const processPayment = async (pathname, queryName, queryEmail)=>{
                 quantity: 1
             }
         ],
-    }, `https://threevillageyouthgolf.com/${pathname}?&name=${queryName}&email=${queryEmail}`)
+    }, `https://threevillageyouthgolf.com/${pathname}?&name=${queryName}&email=${queryEmail}&exp=${queryExp}&age=${queryAge}`)
 }

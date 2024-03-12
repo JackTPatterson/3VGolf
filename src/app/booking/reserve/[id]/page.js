@@ -24,6 +24,10 @@ export default function DetailPage({ params }) {
 
     const queryEmail = new URLSearchParams(window.location.search).get('email')
 
+    const queryExp = new URLSearchParams(window.location.search).get('exp')
+
+    const queryAge = new URLSearchParams(window.location.search).get('age')
+
     const querySesion = new URLSearchParams(window.location.search).get('session_id')
 
     const querySuccess = new URLSearchParams(window.location.search).get('success')
@@ -53,6 +57,9 @@ export default function DetailPage({ params }) {
             await addDoc(colRef, {
                 name: queryName,
                 email: queryEmail,
+                age: queryAge,
+                exp: queryExp,
+                registeredAt: new Date(),
                 session: querySesion
             })
 
@@ -73,36 +80,57 @@ export default function DetailPage({ params }) {
                     }
                     <div className={"mt-10"}>
                         <div className={"flex space-x-4 items-center"}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-10 h-10">
-                                <path strokeLinecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2}
+                                 stroke="currentColor" className="w-10 h-10">
+                                <path strokeLinecap="round"
+                                      d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"/>
                             </svg>
                             {
-                                <p className={"font-medium text-2xl"}>{ queryEmail}</p>
+                                <p className={"font-medium text-2xl"}>{queryEmail}</p>
                             }
                         </div>
                         <div className={"flex space-x-4 items-center mt-4"}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-10 h-10">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2}
+                                 stroke="currentColor" className="w-10 h-10">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                      d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"/>
                             </svg>
                             {
-                                data ? <p className={"font-medium text-2xl"}>{ dayjs(data?.data()?.time.seconds*1000).format('MMMM DD, YYYY')}</p> : <></>
+                                data ?
+                                    <p className={"font-medium text-2xl"}>{dayjs(data?.data()?.time.seconds * 1000).format('MMMM DD, YYYY')}</p> : <></>
                             }
                         </div>
                         <div className={"flex space-x-4 items-center mt-4"}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-10 h-10">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2}
+                                 stroke="currentColor" className="w-10 h-10">
+                                <path strokeLinecap="round" strokeLinejoin="round"
+                                      d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                             {
-                                data ? <p className={"font-medium text-2xl"}>{ dayjs(data?.data()?.time.seconds*1000).format('h:mm A')}</p> : <></>
+                                data ?
+                                    <p className={"font-medium text-2xl"}>{dayjs(data?.data()?.time.seconds * 1000).format('h:mm A')}</p> : <></>
+                            }
+                        </div>
+                        <div className={"flex space-x-4 items-center mt-4"}>
+
+                            {
+                                <p className={"font-medium text-2xl"}>Age: {queryAge}</p>
+                            }
+                        </div>
+                        <div className={"flex space-x-4 items-center mt-4"}>
+
+                            {
+                                <p className={"font-medium text-2xl"}>Experience: {queryExp}</p>
                             }
                         </div>
                     </div>
                 </div>
                 <div className={"md:w-1/2 mt-10"}>
                     {querySuccess === null ?
-                    <ModifyButton modify title={"Continue to Payment"} action={()=>processPayment(pathname, queryName, queryEmail)}>
-                        Submit
-                    </ModifyButton> : <></>
+                        <ModifyButton modify title={"Continue to Payment"}
+                                      action={() => processPayment(pathname, queryName, queryEmail, queryExp, queryAge)}>
+                            Submit
+                        </ModifyButton> : <></>
                     }
                 </div>
 

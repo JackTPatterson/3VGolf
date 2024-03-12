@@ -17,10 +17,11 @@ export default function Page() {
 
     const [dates, setDates] = useState([]);
 
-    const [selected, setSelected] = useState([]);
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [experienceLevel, setExperienceLevel] = useState("");
+    const [age, setAge] = useState("");
 
 
     useEffect(() => {
@@ -65,9 +66,9 @@ export default function Page() {
                                 <h2 className="text-3xl font-bold">{`${date.maxSlots - date.slotAmount}`}</h2>
                                 <p className={"text-xs text-gray-600 mt-1"}>Slots Available</p>
                             </div>
-                            {!(date.maxSlots - date.slotAmount <= 0) && name.target && email.target && name.target.value && email.target.value ?
+                            {(!(date.maxSlots - date.slotAmount <= 0) && name && age && experienceLevel) ?
                                 <RedirectButton
-                                    action={`/booking/reserve/${date.id}?name=${name.target.value}&email=${email.target.value}`}
+                                    action={`/booking/reserve/${date.id}?name=${name}&email=${email}&age=${age}&exp=${experienceLevel}`}
                                     title={"Reserve"}/> : <DisabledButton title={"Reserve"}/>
                             }
                         </div>
@@ -98,20 +99,29 @@ export default function Page() {
                         <div className={"sm:flex md:space-x-4 items-center mb-4"}>
 
                             <div className="mb-4 sm:mb-0">
-                                <input onChange={setName} placeholder={"Full Name"}
+                                <input onChange={e=>setName(e.currentTarget.value)} placeholder={"Full Name"}
                                        className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
                             </div>
                             <div className="">
-                                <input onChange={setEmail} placeholder={"Email"}
+                                <input onChange={e=>setEmail(e.currentTarget.value)} placeholder={"Email"}
                                        className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
+                            </div>
+                            <div className="">
+                                <input type={"number"} onChange={e=>setAge(e.currentTarget.value)} placeholder={"Age"}
+                                       className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
+                            </div>
+                            <div className="">
+                                <input type={"number"} onChange={e=>setExperienceLevel(e.currentTarget.value)} placeholder={"Experience Level"}
+                                       className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent transition duration-300"/>
                             </div>
 
                         </div>
 
-                        <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 md:space-x-4">
+                        <div
+                            className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 md:space-x-4">
                             <Row/>
                         </div>
-                        { !dates.length ?
+                        {!dates.length ?
                             <div className={"mt-10"}>
                                 <h1 className={"text-2xl"}>There are no session yet</h1>
                             </div> : <></>
