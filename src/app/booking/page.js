@@ -66,7 +66,7 @@ export default function Page() {
                                 <h2 className="text-3xl font-bold">{`${date.maxSlots - date.slotAmount}`}</h2>
                                 <p className={"text-xs text-gray-600 mt-1"}>Slots Available</p>
                             </div>
-                            {(!(date.maxSlots - date.slotAmount <= 0) && name && age && experienceLevel) ?
+                            {(!(date.maxSlots - date.slotAmount <= 0) && email && name && age && experienceLevel) ?
                                 <RedirectButton
                                     action={`/booking/reserve/${date.id}?name=${name}&email=${email}&age=${age}&exp=${experienceLevel}`}
                                     title={"Reserve"}/> : <DisabledButton title={"Reserve"}/>
