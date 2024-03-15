@@ -96,29 +96,29 @@ export default function Page() {
 
                     <div className="container px-4 mx-auto">
                         <p className={"mb-4"}>Enter Personal Info</p>
-                        <div className={"sm:flex md:space-x-4 items-center mb-4"}>
+                        <div className={"lg:flex lg:space-x-4 items-center mb-4"}>
 
                             <div className="mb-4 sm:mb-0">
                                 <input onChange={e=>setName(e.currentTarget.value)} placeholder={"Full Name"}
-                                       className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
+                                       className="py-3 w-full lg:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
                             </div>
                             <div className="">
                                 <input onChange={e=>setEmail(e.currentTarget.value)} placeholder={"Email"}
-                                       className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
+                                       className="py-3 w-full lg:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
                             </div>
                             <div className="">
                                 <input type={"number"} onChange={e=>setAge(e.currentTarget.value)} placeholder={"Age"}
-                                       className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
+                                       className="py-3 w-full lg:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
                             </div>
                             <div className="">
                                 <input type={"number"} onChange={e=>setExperienceLevel(e.currentTarget.value)} placeholder={"Experience Level (1-10)"}
-                                       className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent transition duration-300"/>
+                                       className="py-3 w-full lg:w-[250px] text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
                             </div>
 
                         </div>
 
                         <div
-                            className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 space-y-4 md:space-y-0 md:space-x-4">
+                            className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 space-y-4 lg:space-y-0 xl:space-x-4">
                             <Row/>
                         </div>
                         {!dates.length ?

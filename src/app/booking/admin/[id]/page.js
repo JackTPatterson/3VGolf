@@ -66,12 +66,17 @@ export default function DetailPage({params}) {
                                 <h3 className="text-sm text-gray-600 mb-2">{
                                     slot.name
                                 }</h3>
-                                <h3 className="text-sm text-gray-600">
+                                <h3 className="text-sm text-gray-600 mb-2">
                                     {slot.email}
+                                </h3>
+                                <h3 className="text-sm text-gray-600">
+                                    Experience Level: <span className={"font-semibold"}>{slot.exp}</span>
                                 </h3>
                             </div>
 
-                            <ModifyButton modify title={"Refund"} action={ async ()=>{await issueRefund(slot, params); fetchDoc().then();}}/>
+                            <ModifyButton modify title={"Refund"} action={async () => {
+                                await issueRefund(slot, params);
+                                fetchDoc().then();}}/>
                         </div>
                     </div>
                 </div>
@@ -104,7 +109,7 @@ export default function DetailPage({params}) {
                     </div>
                 </div>
                 <div
-                    className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+                    className="grid lg:grid-cols-3 gap-4 md:grid-cols-2 grid-cols-1">
                     <Row/>
                 </div>
 
