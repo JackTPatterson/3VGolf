@@ -111,7 +111,7 @@ export default function Page() {
                                        className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent  transition duration-300"/>
                             </div>
                             <div className="">
-                                <input type={"number"} onChange={e=>setExperienceLevel(e.currentTarget.value)} placeholder={"Experience Level"}
+                                <input type={"number"} onChange={e=>setExperienceLevel(e.currentTarget.value)} placeholder={"Experience Level (1-10)"}
                                        className="py-3 w-full sm:w-auto text-primary text-xl tracking-tighter bg-transparent ring-0 outline-0 border-b-2 border-black focus:border-opacity-40 hover:border-primary focus:ring-4 focus:ring-transparent ring-transparent transition duration-300"/>
                             </div>
 
