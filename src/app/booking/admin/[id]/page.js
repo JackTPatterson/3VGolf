@@ -72,6 +72,9 @@ export default function DetailPage({params}) {
                                 <h3 className="text-sm text-gray-600">
                                     Experience Level: <span className={"font-semibold"}>{slot.exp}</span>
                                 </h3>
+                                <h3 className="text-sm text-gray-600">
+                                    Age: <span className={"font-semibold"}>{slot.age}</span>
+                                </h3>
                             </div>
 
                             <ModifyButton modify title={"Refund"} action={async () => {
