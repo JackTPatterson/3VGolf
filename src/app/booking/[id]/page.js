@@ -27,7 +27,6 @@ export default function DetailPage({ params }) {
 
     const querySuccess = new URLSearchParams(window.location.search).get('success')
 
-    const stripePromise = loadStripe("pk_live_51Nq7cBIX3jzwr7UWhCy02tD1n4EkuPTT5FkNjWvA6HrYPLhzWcYo326R8lwrustPNddnYvH0UlSQc9O86OpNQJ0G00vdeDCOBb");
 
     const pathname = usePathname()
     const router = useRouter()
@@ -55,6 +54,8 @@ export default function DetailPage({ params }) {
                 session: querySesion
             })
 
+            //TODO: Add resend email api to send email to user with link to reservation success
+
             router.push(`/booking/success?id=${params.id.split("%26")[0]}`)
         }
     })
@@ -68,7 +69,7 @@ export default function DetailPage({ params }) {
                     quantity: 1
                 }
             ],
-        }, `http://127.0.0.1:3000${pathname}?&name=${queryName}&email=${queryEmail}`)
+        }, `https://threevillageyouthgolf.com${pathname}?&name=${queryName}&email=${queryEmail}`)
 
 
 

@@ -16,9 +16,6 @@ export default function Success() {
 
     const router = useRouter()
 
-
-
-
     const fetchDoc = async () => {
 
         const query = new URLSearchParams(window.location.search).get('id')

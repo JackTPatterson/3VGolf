@@ -78,8 +78,11 @@ export default function DetailPage({params}) {
                             </div>
 
                             <ModifyButton modify title={"Refund"} action={async () => {
-                                await issueRefund(slot, params);
-                                fetchDoc().then();}}/>
+                                if(confirm("Are you sure you want to refund this slot?")){
+                                    await issueRefund(slot, params);
+                                    fetchDoc().then();
+                                }
+                                }}/>
                         </div>
                     </div>
                 </div>
